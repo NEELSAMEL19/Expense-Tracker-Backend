@@ -13,7 +13,7 @@ import dashboardRoutes from "./modules/dasboard/dashboard.routes.js";
 const app = express();
 app.set("etag", false);   // add this line
 
-const corsOrigins = ["https://expense-tracker-one-delta-51.vercel.app/", "http://localhost:3000"];
+const corsOrigins = ["https://expense-tracker-one-delta-51.vercel.app", "http://localhost:3000"];
 app.use(
   cors({
     origin: corsOrigins,
