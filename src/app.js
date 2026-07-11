@@ -7,7 +7,7 @@ import {
 } from "./common/middlewares/error.middleware.js";
 import authRoutes from "./modules/auth/auth.routes.js";
 import incomeRoutes from "./modules/income/income.routes.js";
-import expenseRoutes from "./modules/Expenses/expense.routes.js";
+import expenseRoutes from "./modules/expenses/expense.routes.js";
 import dashboardRoutes from "./modules/dasboard/dashboard.routes.js";
 
 const app = express();
