@@ -11,11 +11,13 @@ import expenseRoutes from "./modules/expenses/expense.routes.js";
 import dashboardRoutes from "./modules/dasboard/dashboard.routes.js";
 
 const app = express();
+app.set("etag", false);   // add this line
 
+const corsOrigins = ["https://expense-tracker-one-delta-51.vercel.app/", "http://localhost:3000"];
 app.use(
   cors({
-    origin: process.env.CLIENT_URL, // your Vercel frontend URL
-    credentials: true, // needed since you're using cookies for auth
+    origin: corsOrigins,
+    credentials: true,
   }),
 );
 
