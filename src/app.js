@@ -1,9 +1,21 @@
 import express from "express";
+import cors from "cors";
 import cookieParser from "cookie-parser";
-import { notFound, errorHandler } from "./common/middlewares/error.middleware.js";
-import userRoutes from "./modules/auth/auth.routes.js";
+import {
+  notFound,
+  errorHandler,
+} from "./common/middlewares/error.middleware.js";
+import authRoutes from "./modules/auth/auth.routes.js";
+import incomeRoutes from "./modules/income/income.routes.js";
 
 const app = express();
+
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL, // your Vercel frontend URL
+    credentials: true, // needed since you're using cookies for auth
+  }),
+);
 
 app.use(express.json());
 app.use(cookieParser()); // needed since protect reads req.cookies.token
@@ -12,7 +24,8 @@ app.get("/", (req, res) => {
   res.send("Expense Tracker API is running...");
 });
 
-app.use("/api/auth", userRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/income", incomeRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
