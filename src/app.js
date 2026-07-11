@@ -7,6 +7,7 @@ import {
 } from "./common/middlewares/error.middleware.js";
 import authRoutes from "./modules/auth/auth.routes.js";
 import incomeRoutes from "./modules/income/income.routes.js";
+import expenseRoutes from "./modules/Expenses/expense.routes.js";
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/income", incomeRoutes);
+app.use("/api/expense", expenseRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
