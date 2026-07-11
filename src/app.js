@@ -8,6 +8,7 @@ import {
 import authRoutes from "./modules/auth/auth.routes.js";
 import incomeRoutes from "./modules/income/income.routes.js";
 import expenseRoutes from "./modules/Expenses/expense.routes.js";
+import dashboardRoutes from "./modules/dasboard/dashboard.routes.js";
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/income", incomeRoutes);
 app.use("/api/expense", expenseRoutes);
 
