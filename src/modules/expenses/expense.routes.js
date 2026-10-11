@@ -9,7 +9,7 @@ import { protect } from "../../common/middlewares/auth.middleware.js";
 
 const router = express.Router();
 
-router.post("/add", protect, addExpense);
+router.post("/", protect, addExpense);
 router.get("/", protect, getAllExpense);
 router.get("/download", protect, downloadExpenseExcel);
 router.delete("/:id", protect, deleteExpense);
