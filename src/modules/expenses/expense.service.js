@@ -11,7 +11,7 @@ export const addExpenseService = async ({
 }) => {
   const expense = await Expense.create({
     userId,
-    icon,
+    icon: icon?.trim() || "💸",
     category,
     amount,
     date,

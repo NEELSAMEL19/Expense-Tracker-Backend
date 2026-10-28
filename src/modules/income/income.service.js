@@ -9,7 +9,13 @@ export const addIncomeService = async ({
   amount,
   date,
 }) => {
-  const income = await Income.create({ userId, icon, source, amount, date });
+  const income = await Income.create({
+    userId,
+    icon: icon?.trim() || "💰",
+    source,
+    amount,
+    date,
+  });
   return income;
 };
 

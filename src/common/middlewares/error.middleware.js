@@ -20,6 +20,10 @@ export const errorHandler = (err, req, res, next) => {
     statusCode = 400;
     message = "Resource not found";
   }
+  if (err.name === "ValidationError") {
+    statusCode = 400;
+    message = err.message;
+  }
   if (err.code === 11000) {
     statusCode = 400;
     message = "Duplicate field value entered";

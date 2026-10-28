@@ -10,7 +10,7 @@ import {
 
 export const addExpense = asyncHandler(async (req, res) => {
   const parsed = addExpenseSchema.safeParse(req.body);
-  if (!parsed.success) throw new AppError(parsed.error.errors[0].message, 400);
+  if (!parsed.success) throw new AppError(parsed.error.issues[0].message, 400);
 
   const expense = await addExpenseService({
     userId: req.user._id,
